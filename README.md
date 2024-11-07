@@ -86,8 +86,9 @@ Si deseas contribuir a este proyecto, puedes hacer un fork y enviar un pull requ
 
 Este archivo `README.md` guía al usuario en la configuración y ejecución del servidor PHP, además de proporcionar instrucciones detalladas para probar cada uno de los endpoints disponibles en el archivo `index.php`.
 
+```
 
-### TODO
+## TODO
 
 - Agregar dockerfile y docker compose para probar mas facilmente
 - Agregar github action para CI/CD
