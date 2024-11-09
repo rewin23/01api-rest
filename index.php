@@ -39,7 +39,7 @@ try {
                     } 
                     // si el metodo es get y se llama a la ruta services/numero devolvemos el servicio con ese id
                     elseif (preg_match('/^services\/(\d+)$/', $path, $matches)) {
-                        $user = $userController->show($matches[1]);
+                        $user = $servicesController->show($matches[1]);
                         echo json_encode($user ? $user : ['error' => 'Servicio no encontrado']);
                     }
                     // si el metodo es get y se llama a la ruta about devolvemos la informacion de about
