@@ -22,7 +22,7 @@ services:
     networks: 
       - app-network
     volumes:
-      - ./db:/var/lib/mysql
+      - ./.db:/var/lib/mysql
 
 networks: 
   app-network:
