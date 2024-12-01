@@ -52,6 +52,29 @@ try {
                     }
                     break;
 
+                case 'POST':
+                    if ($path === 'services') {
+                        $data = json_decode(file_get_contents('php://input'), true);
+                        if (!isset($data['titulo'], $data['descripcion'], $data['activo'])) {
+                            http_response_code(400);
+                            echo json_encode(['error' => 'Datos incompletos']);
+                            break;
+                        }
+                        $result = $servicesController->store($data);
+                        if ($result['success']) {
+                            http_response_code(201);
+                            echo json_encode(['success' => true, 'id' => $result['id']]);
+                        } else {
+                            http_response_code(500);
+                            echo json_encode(['error' => $result['error']]);
+                        }
+                    } else {
+                        http_response_code(404);
+                        echo json_encode(['error' => 'Ruta no encontrada']);
+                    }
+                    break;
+    
+                 
                 default:
                     http_response_code(405);
                     // Aca devolvemos no permitido en vez de no implementado como medida de seguridad
